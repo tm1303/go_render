@@ -1,0 +1,22 @@
+syntax = "proto3";
+package gen;
+option go_package = "gen/";
+
+service RenderInterface {
+    rpc SetBackgroundColour(SetBackgroundColourRequest) returns (EmptyResponse) {}
+    rpc Render(RenderRequest) returns (stream RenderResponse) {}
+}
+
+message SetBackgroundColourRequest {
+    string colour = 1;
+}
+                                                                                                             
+message EmptyResponse {
+}
+
+message RenderRequest {
+}
+                                                                                             
+message RenderResponse {
+    bytes fileChunk = 1;
+}
